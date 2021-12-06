@@ -30,7 +30,6 @@ fn solve03(lines: &Vec<&str>) -> u32 {
             }
         }
         b = (b as f32 / lines.len() as f32).round() as u32;
-        println!("{}", b);
         match char::from_digit(b, 10) {
             Some('1') => {
                 gamma.push('1');
@@ -40,11 +39,9 @@ fn solve03(lines: &Vec<&str>) -> u32 {
                 gamma.push('0');
                 epsilon.push('1');
             },
-            Some(n) => println!("{}", n),
-            _ => println!("not")
+            _ => ()
         };
     };
-    println!("g: {}, e: {}", gamma, epsilon);
     u32::from_str_radix(gamma.as_str(), 2).unwrap() *
         u32::from_str_radix(epsilon.as_str(), 2).unwrap()
 }
